@@ -3,14 +3,13 @@ var thirdMax = function(nums) {
     nums = nums.sort();
     if(nums.length >= 3){
         max = nums[nums.length-1];
-        nums = nums.filter(function(x){
-            x !== max;
-        });
+        nums = nums.filter(x=> x!==max);
         secondMax = nums[nums.length-1];
-        nums = nums.filter(function(x){
-            x !== secondMax;
-        });
+        nums = nums.filter(x=> x!==secondMax);
         thirdMax = nums[nums.length - 1];
+    }
+    else{
+        thirdMax = Math.max(...nums);
     }
     return thirdMax;
 };
