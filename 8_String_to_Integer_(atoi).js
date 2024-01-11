@@ -8,7 +8,7 @@ var myAtoi = function(s) {
             myString = myString + s[i];
             flag = 1;
         }
-        if(s[i].charCodeAt(0) >= 49 && s[i].charCodeAt(0) <= 57){
+        else if(s[i].charCodeAt(0) >= 49 && s[i].charCodeAt(0) <= 57){
             myString = myString + s[i];
             flag = 1;
         }
