@@ -4,22 +4,16 @@ var isValid = function(s) {
     while(i < s.length){
         if(s[i] === "(" || s[i] === "[" || s[i] === "{") arr.push(s[i]);
         else if(s[i] === ")"){
-            if(s[arr.length - 1] !== "(") return false;
-            else{
-                arr.pop();
-            }
+            if(arr[arr.length - 1] !== "(") return false;
+            else arr.pop();
         }
         else if(s[i] === "]"){
-            if(s[arr.length - 1] !== "[") return false;
-            else{
-                arr.pop();
-            }
+            if(arr[arr.length - 1] !== "[") return false;
+            else arr.pop();
         }
         else if(s[i] === "}"){
-            if(s[arr.length - 1] !== "{") return false;
-            else{
-                arr.pop();
-            }
+            if(arr[arr.length - 1] !== "{") return false;
+            else arr.pop(); 
         }
         i++;
     }
