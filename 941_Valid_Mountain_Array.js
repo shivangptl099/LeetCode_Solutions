@@ -1,13 +1,18 @@
 var validMountainArray = function(arr) {
-    let increase = false;
-    let decrease = false;
+    if(arr.length < 3) return false;
     let f = 0;
-    for(let i = 0; i < arr.length - 1; i++){
+    if(arr[0] >= arr[1]) return false;
+    let i = 1;
+    for(i; i < arr.length - 1; i++){
         if(arr[i] === arr[i + 1]) return false;
-        else if(arr[i] < arr[i + 1]) increase = true;
-        else if(arr[i] > arr[i + 1]) decrease = true;
-        if(increase && decrease) f = 1;
-        if(f === 1 && (increase && decrease) === false) return false;
+        if(arr[i] > arr[i + 1]){
+            f = 1;
+            break;
+        }
     }
+    if(f !== 1) return false;
+    let j = i + 1;
+    for(j; j < arr.length - 1; j++)
+    if(arr[j] <= arr[j + 1]) return false;
     return true;
 };
