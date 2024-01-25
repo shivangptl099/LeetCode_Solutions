@@ -1,18 +1,8 @@
 var repeatedCharacter = function(s) {
     let arr = [];
-    let i = 0;
-    while(i < s.length){
-        if(arr.length === 0){
-            arr.push(s[i]);
-        }
-        else{
-            let j = 0;
-            while(j<s.length){
-                if(s[i] === arr[j]) return s[i];
-                j++;
-            }
-            arr.push(s[i]);
-        }
-        i++;
+    for(let i = 0; i < s.length; i++){
+        if(arr.length === 0) arr.push(s[i]);
+        else if(arr.indexOf(s[i]) !== -1) return s[i];
+        else arr.push(s[i]);
     }
 };
