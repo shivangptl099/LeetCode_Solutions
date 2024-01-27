@@ -6,17 +6,17 @@ var topKFrequent = function(nums, k) {
             let t = map1.get(nums[i]) + 1;
             map1.set(nums[i],t);
         }
-        else map1.set(nums[i],1);
+        else {
+            map1.set(nums[i],1);
+        }
     }
     let arr = [];
     let keys = Array.from(map1.keys());
     let values = Array.from(map1.values());
     for(let i = 0; i < k; i++){
-        let m1 = Math.max(...values);
-        let m2 = keys[values.indexOf(m1)];
-        arr.push(m2);
-        keys = keys.filter(x => x!== m2);
-        values = values.filter(x => x!== m1);
+        let index = values.indexOf(Math.max(...values));
+        arr.push(keys[index]);
+        values[index] = 0;
     }
     return arr;
 };
