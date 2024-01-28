@@ -1,15 +1,21 @@
 var thirdMax = function(nums) {
-    var max,secondMax,thirdMax;
-    nums = nums.sort();
-    if(nums.length >= 3){
-        max = nums[nums.length-1];
-        nums = nums.filter(x=> x!==max);
-        secondMax = nums[nums.length-1];
-        nums = nums.filter(x=> x!==secondMax);
-        thirdMax = nums[nums.length - 1];
+    if(nums.length < 3) return Math.max(...nums);
+    let arr = [];
+    for(let i = 0; i < nums.length; i++)
+    {
+        if(i == 0)
+        {
+            arr.push(nums[i]);
+        } 
+        else if(arr.indexOf(nums[i]) == -1)
+        {
+            arr.push(nums[i]);
+        }
     }
-    else{
-        thirdMax = Math.max(...nums);
+    if(arr.length < 3)
+    {
+        return Math.max(...arr);
     }
-    return thirdMax;
+    arr = arr.sort((a,b) => a-b);
+    return arr[arr.length - 3];
 };
