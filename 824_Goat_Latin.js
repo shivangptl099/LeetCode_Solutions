@@ -1,18 +1,16 @@
 var toGoatLatin = function(sentence) {
     sentence = sentence.split(" ");
-    let s1 = "maa";
+    let lastMaa = "maa";
     for(let i = 0; i < sentence.length; i++){
-        let t = sentence[i];
-        let m = t[0];
-        if(m == "a" || m == "e" || m == "i" || m == "o" || m == "u" || m == "A" || m == "E" || m == "I" || m == "O" || m == "U"){
-           t = t + s1;
-           sentence[i] = t;
+        let currentWord = sentence[i];
+        let firstChar = currentWord[0];
+        let c = firstChar.toLowerCase();
+        if(c == "a" || c == "e" || c == "i" || c == "o" || c == "u"){
+           sentence[i] = currentWord + lastMaa;
         }else{
-            t = t.slice(1);
-            t = t + m + s1;
-            sentence[i] = t;
+            sentence[i] = sentence[i].slice(1) + firstChar + lastMaa;
         }
-        s1 += "a";
+        lastMaa += "a";
     }
     return sentence.join(" ");
 };
