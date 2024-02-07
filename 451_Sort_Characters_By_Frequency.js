@@ -1,24 +1,15 @@
 var frequencySort = function(s) {
     let map = new Map()
     for(let i = 0; i < s.length; i++){
-        if(map.has(s[i])){
-            let t = map.get(s[i])
-            map.set(s[i],t+1)
-        }
-        else{
-            map.set(s[i],1)
-        }
+        map.has(s[i])?(map.set(s[i],map.get(s[i]) + 1)):(map.set(s[i],1))
     }
-    let keys = Array.from(map.keys())
-    let values = Array.from(map.values())
+    let arr = Array.from(map)
+    arr = arr.sort((a,b) => b[1] - a[1])
     let ans = ""
-    for(let i = 0; i < s.length; i++){
-        let max = Math.max(...values)
-        let max_index = values.indexOf(max)
-        for(let i = 0; i < max; i++){
-            ans += keys[max_index]
+    for(let i = 0; i < arr.length; i++){
+        for(let j = 0; j < arr[i][1]; j++){
+            ans += arr[i][0]
         }
-        values[max_index] = -1
     }
     return ans
 };
