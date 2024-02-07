@@ -6,12 +6,5 @@ var sortSentence = function(s) {
         let lastCharOfWord = currentWord[currentWord.length - 1]
         map[lastCharOfWord] = currentWord.substring(0,currentWord.length - 1)
     }
-    let ans = ""
-    for(let i = 1; i < map.length; i++){
-        if(i == map.length - 1) ans += map[i]
-        else{
-            ans += map[i] + " "
-        }
-    }
-    return ans
+    return map.join(" ").substring(1)
 };
