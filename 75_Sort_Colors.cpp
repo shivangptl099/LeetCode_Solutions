@@ -1,3 +1,4 @@
+// StraightForward Method with Counting Sort
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
@@ -23,6 +24,27 @@ public:
         while(countTwos > 0){
             nums[i] = 2;
             countTwos--;
+            i++;
+        }
+    }
+};
+
+// Two Pointers Approach
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int s = 0;
+        int e = nums.size() - 1;
+        int i = 0;
+        while(i <= e){
+            if(nums[i] == 0){
+                swap(nums[i],nums[s]);
+                s++;
+            } else if(nums[i] == 2){
+                swap(nums[i],nums[e]);
+                e--;
+                continue;
+            }
             i++;
         }
     }
