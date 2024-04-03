@@ -10,7 +10,8 @@ public:
                 max_len = max(max_len, x);
                 words.push_back(s1);
                 s1 = "";
-            } else s1 += s[i];
+            }
+            else s1 += s[i];
         }
         if(s1 != "") words.push_back(s1);
         int x = s1.length();
