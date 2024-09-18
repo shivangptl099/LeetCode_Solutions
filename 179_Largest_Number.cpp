@@ -12,7 +12,9 @@ public:
         for(string s : sorted){
             ans += s;
         }
-        if(ans[0] == '0') return "0";
+        if(ans[0] == '0'){
+            return "0";
+        }
         return ans;
     }
 };
